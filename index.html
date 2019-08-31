@@ -33,27 +33,15 @@
 		</head>
 	<body style = "margin:0; overflow:hidden;">
 
-		<!--tag não padrão do html onde nossa cena de RA seá adicionada (todos os itens vão dentro dela)-->
-		<a-scene embedded arjs>			
-			
-			<!-- carregamento do Obj 3D -->
-			<a-entity obj-model="obj: url(Astronaut.obj); 
-		mtl: url(Astronaut.mtl)" scale="0.5 0.5 0.5" rotate="0 0 0" ></a-entity>
+		<!-- Carregando animações -->
+		<a-scene embedded arjs>
 
+		<a-marker preset='hiro'>
+	      <a-entity id="drone" position="0 0 0" scale="1 1 1"       gltf-model-next="src: url(busterDrone.gltf);" animation-mixer>
+	      </a-entity>
+    	</a-marker>
 
-			<!--Cria e posiciona um cubo sobre o marcador
-			<a-plane postition = " 0 0 0 " rotation="0 0 0" color="#FFFF00"></a-plane> --><!-- #4CC3D9-->
-
-			<!--chamada do código do marcador HIRO marcador padrão do AR.js-->
-
-			<!-- preset = "hiro" quando usamos o marcador padrão do AR.js  
-
-			Carregando nosso próprio marcador 
-			
-			type="pattern" patternUrl="marcadores/pattern-marcador01.patt"
-			 -->
-
-		<a-marker-camera preset = "hiro"  ></a-marker-camera>
+    	<a-entity camera></a-entity>
 
 		</a-scene>
 
