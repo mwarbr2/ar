@@ -36,7 +36,12 @@
 		<!-- Carregando animações -->
 		<a-scene embedded arjs>
 
-	    	<a-entity gltf-model="gltf: url(busterDrone.gltf)" scale="0.5 0.5 0.5" rotate="0 0 0" animation-mixer ></a-entity>
+			<a-assets>
+    			<a-asset-item id="drone" src="busterDrone.gltf"></a-asset-item>
+  			</a-assets>
+
+  			<a-entity gltf-model="#drone" scale="0.5 0.5 0.5" rotate="0 0 0" animation-mixer ></a-entity>
+
 
     		<a-marker-camera preset = "hiro"  ></a-marker-camera>
 
