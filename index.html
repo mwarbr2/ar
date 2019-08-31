@@ -30,39 +30,20 @@
 
 			 <script src = "https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
 
-			 <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script> 
+			<script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script> 
   			
   			<script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script>
 
 		</head>
 	<body style = "margin:0; overflow:hidden;">
 
-		<!--tag não padrão do html onde nossa cena de RA seá adicionada (todos os itens vão dentro dela)-->
+		<!-- Carregando animações -->
 		<a-scene embedded arjs>
 
-		<a-assets>
-        	<img id="transpImage" src="banana.gif">
-    	</a-assets>
-   		
-   		 <a-image width="1" height="1" position="1 1 1 " src="#transpImage"></a-image>
-
-   		 <a-plane material="src:url(banana.gif);" gif=""></a-plane>			
-			
+  			<a-plane material="src:url(banana.gif);" gif=""></a-plane>
 
 
-			<!--Cria e posiciona um cubo sobre o marcador
-			<a-plane postition = " 0 0 0 " rotation="0 0 0" color="#FFFF00"></a-plane> --><!-- #4CC3D9-->
-
-			<!--chamada do código do marcador HIRO marcador padrão do AR.js-->
-
-			<!-- preset = "hiro" quando usamos o marcador padrão do AR.js  
-
-			Carregando nosso próprio marcador 
-			
-			type="pattern" patternUrl="marcadores/pattern-marcador01.patt"
-			 -->
-
-		<a-marker-camera preset = "hiro"  ></a-marker-camera>
+    		<a-marker-camera preset = "hiro"  ></a-marker-camera>
 
 		</a-scene>
 
