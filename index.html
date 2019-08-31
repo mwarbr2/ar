@@ -3,6 +3,8 @@
 
 	https://jeromeetienne.github.io/AR.js/three.js/examples/marker-training/examples/generator.html
 
+	
+
 */
 
 
@@ -34,6 +36,12 @@
 
 		<!--tag não padrão do html onde nossa cena de RA seá adicionada (todos os itens vão dentro dela)-->
 		<a-scene embedded arjs>
+
+		<a-assets>
+        	<img id="transpImage" src="https://via.placeholder.com/150">
+    	</a-assets>
+   		
+   		 <a-image width="1" height="1" src="#transpImage"></a-image>			
 			
 			<!-- carregamento do Obj 3D -->
 			<a-entity obj-model="obj: url(Astronaut.obj); 
@@ -53,53 +61,8 @@
 			 -->
 
 		<a-marker-camera preset = "hiro"  ></a-marker-camera>
-		
-
-		<button ontouchstart="captura();" id="snap-button" style="display: block; position: fixed;top: 0; left: 30%; z-index: 2000;padding: 20px;">Capturar a Foto!</button>
 
 		</a-scene>
-
-
-		<script defer type="text/javascript">
-			
-		function resizeCanvas(origCanvas, width, height) {
-	        let resizedCanvas = document.createElement("canvas");
-	        let resizedContext = resizedCanvas.getContext("2d");
-
-	        resizedCanvas.height = height;
-	        resizedCanvas.width = width;
-
-	        if (width > height) {
-	            // Landscape
-	            resizedContext.drawImage(origCanvas, 0, 0, width, height);
-	        } else {
-	            // Portrait
-	            /*var scale = height / width;
-	            var scaledHeight = origCanvas.width * scale;
-	            var scaledWidth = origCanvas.height * scale;
-	            var marginLeft = ( origCanvas.width - scaledWidth) / 2;
-	            resizedContext.drawImage(origCanvas, marginLeft, 0, scaledWidth, scaledHeight);*/
-	            resizedContext.drawImage(origCanvas, 0, 0, height, width);
-	        }
-
-        	return resizedCanvas.toDataURL();
-    }
-
-		 function captura() {
-				let aScene = document.querySelector("a-scene").components.screenshot.getCanvas("perspective");
-				let frame = captureVideoFrame("video", "png");
-				aScene = resizeCanvas(aScene, frame.width, frame.height);
-				frame = frame.dataUri;
-				mergeImages([frame, aScene]).then(b64 => {
-					let link = document.getElementById("download-link", "png");
-					link.setAttribute("download", "AR.png");
-					link.setAttribute("href", b64);
-					link.click();
-				});
-			}
-					
-
-		</script>
 
 		</body>
 	</html>
