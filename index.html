@@ -26,6 +26,7 @@
 			 o marcador onde o objeto será inserido--->
 
 			 <script src = "https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+
 		</head>
 	<body style = "margin:0; overflow:hidden;">
 
@@ -51,6 +52,38 @@
 
 		<a-marker-camera preset = "hiro"  ></a-marker-camera>
 		</a-scene>
+
+		<button id="snap-button"></button>
+
+		<script type="text/javascript">
+			
+			function resizeCanvas(origCanvas, width, height) {
+				let resizedCanvas = document.createElement("canvas");
+				let resizedContext = resizedCanvas.getContext("2d");
+
+				resizedCanvas.height = width;
+				resizedCanvas.width = height;
+
+				resizedContext.drawImage(origCanvas, 0, 0, width, height);
+				return resizedCanvas.toDataURL();
+			}
+
+			document.getElementById("snap-button").addEventListener("click", function() {
+				let aScene = document
+					.querySelector("a-scene")
+					.components.screenshot.getCanvas("perspective");
+				let frame = captureVideoFrame("video", "png");
+				aScene = resizeCanvas(aScene, frame.width, frame.height);
+				frame = frame.dataUri;
+				mergeImages([frame, aScene]).then(b64 => {
+					let link = document.getElementById("download-link", "png");
+					link.setAttribute("download", "AR.png");
+					link.setAttribute("href", b64);
+					link.click();
+				});
+			});			
+
+		</script>
 
 		</body>
 	</html>
