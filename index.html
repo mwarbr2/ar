@@ -58,7 +58,7 @@
 		</a-scene>
 
 
-		<script type="text/javascript">
+		<script defer type="text/javascript">
 			
 		function resizeCanvas(origCanvas, width, height) {
 	        let resizedCanvas = document.createElement("canvas");
@@ -83,7 +83,11 @@
         	return resizedCanvas.toDataURL();
     }
 
-		 function captura() {
+    	function captura(){
+    		alert("deu!");
+    	}
+
+		 function captura2() {
 				let aScene = document
 					.querySelector("a-scene")
 					.components.screenshot.getCanvas("perspective");
