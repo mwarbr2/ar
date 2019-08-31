@@ -38,14 +38,23 @@
 		<a-scene embedded arjs>
 
 		<a-assets>
-        	<img id="transpImage" src="https://media.giphy.com/media/l3vRjYearYzgNb7e8/giphy.gif">
+        	<img id="transpImage" src="https://cdn.brasilesoterico.com/imagens_produtos/md_5347-0-190820120814000000-trio-de-monge-nada-vejo--falo--ouco-5-cm.jpg">
+
+        	<img id="banana" src="banana.gif">
+
+
+
+
     	</a-assets>
    		
-   		 <a-image width="1" height="1" src="#transpImage"></a-image>			
+   		 	<a-image width="1" height="1" src="#transpImage"></a-image>			
 			
 			<!-- carregamento do Obj 3D -->
 			<a-entity obj-model="obj: url(Astronaut.obj); 
 		mtl: url(Astronaut.mtl)" scale="0.5 0.5 0.5" rotate="0 0 0" ></a-entity>
+
+			<!-- carregamento das imagens -->
+			<a-entity geometry="primitive:plane;width:2;height:2;" position="-1.2 -2.125 -1" material="shader:gif;src:#banana;repeat: 2 2;alphaTest:0.5;"></a-entity>
 
 
 			<!--Cria e posiciona um cubo sobre o marcador
