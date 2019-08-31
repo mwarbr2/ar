@@ -83,14 +83,8 @@
         	return resizedCanvas.toDataURL();
     }
 
-    	function captura(){
-    		alert("deu!");
-    	}
-
-		 function captura2() {
-				let aScene = document
-					.querySelector("a-scene")
-					.components.screenshot.getCanvas("perspective");
+		 function captura() {
+				let aScene = document.querySelector("a-scene").components.screenshot.getCanvas("perspective");
 				let frame = captureVideoFrame("video", "png");
 				aScene = resizeCanvas(aScene, frame.width, frame.height);
 				frame = frame.dataUri;
